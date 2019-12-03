@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ConstraintSet android:id="@+id/start">
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/logo_initial_size"
+            android:layout_height="@dimen/logo_initial_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+    </ConstraintSet>
+
+    <Transition
+        android:id="@+id/tr_logo"
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="15000"
+        app:motionInterpolator="linear">
+        <OnClick
+            app:clickAction="transitionToEnd"
+            app:targetId="@id/iv_logo" />
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="1.4"
+                android:scaleY="1.4"
+                app:framePosition="10"
+                app:motionTarget="@id/iv_logo" />
+            <KeyPosition
+                app:framePosition="10"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0.5"
+                app:percentY="0.5" />
+            <KeyAttribute
+                android:scaleX="1.4"
+                android:scaleY="1.4"
+                app:framePosition="20"
+                app:motionTarget="@id/iv_logo" />
+            <KeyAttribute
+                android:scaleX="0.333"
+                android:scaleY="0.333"
+                app:framePosition="30"
+                app:motionTarget="@id/iv_logo" />
+            <KeyPosition
+                app:framePosition="30"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0.5"
+                app:percentY="0.5" />
+
+            <KeyPosition
+                app:framePosition="40"
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0.05"
+                app:percentY="0.5" />
+            <KeyAttribute
+                android:scaleX="0.333"
+                android:scaleY="0.333"
+                app:framePosition="100"
+                app:motionTarget="@id/iv_logo" />
+        </KeyFrameSet>
+    </Transition>
+</MotionScene>
