@@ -10,25 +10,14 @@
             android:id="@+id/iv_logo"
             android:layout_width="@dimen/logo_default_size"
             android:layout_height="@dimen/logo_default_size"
+            android:scaleX="1"
+            android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5" />
-
-        <!--<Constraint
-            android:id="@+id/tv_emin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="1"
-            android:padding="@dimen/logo_default_size"
-            android:text="@string/emin"
-            android:textColor="@color/colorWhite"
-            android:textSize="20dp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
-            app:layout_constraintLeft_toLeftOf="@id/iv_logo"
-            app:layout_constraintTop_toTopOf="@id/iv_logo" />-->
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/state_end2">
@@ -91,13 +80,14 @@
             app:layout_constraintLeft_toLeftOf="@id/iv_logo"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+
     </ConstraintSet>
 
     <Transition
         android:id="@+id/tr1"
         app:constraintSetEnd="@id/state_end1"
         app:constraintSetStart="@id/state_start"
-        app:duration="2000"
+        app:duration="2500"
         app:motionInterpolator="linear">
         <OnClick
             app:clickAction="transitionToEnd"
@@ -105,35 +95,45 @@
         <KeyFrameSet>
             <KeyAttribute
                 android:alpha="1"
-                android:scaleX="4"
-                android:scaleY="4"
+                app:framePosition="0"
+                app:motionTarget="@id/progress_bar" />
+            <KeyAttribute
+                android:alpha="0.1"
+                android:scaleX="2"
+                android:scaleY="2"
+                app:framePosition="0"
+                app:motionTarget="@id/iv_logo" />
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="3"
+                android:scaleY="3"
                 app:framePosition="30"
                 app:motionTarget="@id/iv_logo" />
 
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="40"
+                app:motionTarget="@id/progress_bar" />
+
             <KeyPosition
                 app:framePosition="30"
-                app:keyPositionType="parentRelative"
+                app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/iv_logo"
-                app:percentX="0.5"
-                app:percentY="0.5" />
-            <KeyAttribute
-                android:scaleX="4"
-                android:scaleY="4"
-                app:framePosition="35"
-                app:motionTarget="@id/iv_logo" />
+                app:percentX="0"
+                app:percentY="1" />
 
             <KeyAttribute
                 android:scaleX="1"
                 android:scaleY="1"
-                app:framePosition="60"
+                app:framePosition="55"
                 app:motionTarget="@id/iv_logo" />
 
             <KeyPosition
                 app:framePosition="60"
-                app:keyPositionType="parentRelative"
+                app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/iv_logo"
-                app:percentX="0.5"
-                app:percentY="0.5" />
+                app:percentX="0"
+                app:percentY="1" />
         </KeyFrameSet>
     </Transition>
 
