@@ -42,23 +42,17 @@ class MainFragment : Fragment() {
 
             }
 
-            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
-                when (currentId) {
-                    R.id.state_end1 -> {
-                        motionLayout?.apply {
-                            this.setTransition(R.id.state_end1, R.id.state_end2)
-                            this.setTransitionDuration(1200)
-                            this.transitionToEnd()
-                        }
-                    }
-                    R.id.state_end2 -> {
-                        motionLayout?.apply {
-                            view_transition3.performClick()
-                        }
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentStateId: Int) {
+                if (currentStateId == R.id.state_end1) {
+                    val transition = motionLayout?.getTransition(R.id.tr2)
+                    transition?.let {
+                        motionLayout.setTransition(
+                            transition.startConstraintSetId,
+                            transition.endConstraintSetId
+                        )
                     }
                 }
             }
-
         })
 
         view_transition1.performClick()
