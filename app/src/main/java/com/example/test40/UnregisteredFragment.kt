@@ -1,9 +1,11 @@
 package com.example.test40
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_unregistered.*
@@ -20,6 +22,38 @@ class UnregisteredFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_unregistered, container, false)
+    }
+
+    var cacheStasusBarColor: Int? = null
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val window = activity?.getWindow()
+        window?.apply {
+            cacheStasusBarColor = window.statusBarColor
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.setStatusBarColor(Color.RED)
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        val window = activity?.getWindow()
+        window?.apply {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            cacheStasusBarColor?.let {
+                window.setStatusBarColor(it)
+            }
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,7 +81,7 @@ class UnregisteredFragment : Fragment() {
                             R.anim.exit_to_right,
                             R.anim.exit_to_right
                         )
-                        .add(R.id.frame_container_id, registerFragment, "reg")
+                        .replace(R.id.frame_container_id, registerFragment, "reg")
                         .addToBackStack(null)
                         .commitAllowingStateLoss()
                 }

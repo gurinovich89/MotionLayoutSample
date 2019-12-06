@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="zoom_default" format="float" type="dimen">2.0</item>
+    <item name="zoom_large" format="float" type="dimen">2.6</item>
+</resources>

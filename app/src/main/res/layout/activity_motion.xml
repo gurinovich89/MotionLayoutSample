@@ -35,8 +35,8 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="@dimen/logo_default_size"
-        android:layout_height="@dimen/logo_default_size"
+        android:layout_width="@dimen/logo_default_width"
+        android:layout_height="@dimen/logo_default_width"
         android:alpha="0.1"
         android:src="@drawable/ic_ubank_sign"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -8,8 +8,8 @@
     <ConstraintSet android:id="@+id/state_end1">
         <Constraint
             android:id="@+id/iv_logo"
-            android:layout_width="@dimen/logo_default_size"
-            android:layout_height="@dimen/logo_default_size"
+            android:layout_width="@dimen/logo_default_width"
+            android:layout_height="@dimen/logo_default_width"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintLeft_toLeftOf="parent"

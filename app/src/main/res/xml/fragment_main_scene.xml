@@ -8,8 +8,8 @@
     <ConstraintSet android:id="@+id/state_end1">
         <Constraint
             android:id="@+id/iv_logo"
-            android:layout_width="@dimen/logo_default_size"
-            android:layout_height="@dimen/logo_default_size"
+            android:layout_width="@dimen/logo_default_width"
+            android:layout_height="@dimen/logo_default_height"
             android:scaleX="1"
             android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -23,8 +23,8 @@
     <ConstraintSet android:id="@+id/state_end2">
         <Constraint
             android:id="@+id/iv_logo"
-            android:layout_width="@dimen/logo_default_size"
-            android:layout_height="@dimen/logo_default_size"
+            android:layout_width="@dimen/logo_default_width"
+            android:layout_height="@dimen/logo_default_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -39,7 +39,7 @@
             android:alpha="1"
             android:text="@string/emin"
             android:textColor="@color/colorWhite"
-            android:textSize="20dp"
+            android:textSize="@dimen/logo_title_font_size"
             app:layout_constraintBottom_toBottomOf="@id/iv_logo"
             app:layout_constraintLeft_toRightOf="@id/iv_logo"
             app:layout_constraintTop_toTopOf="@id/iv_logo" />
@@ -48,8 +48,8 @@
     <ConstraintSet android:id="@+id/state_end3">
         <Constraint
             android:id="@+id/iv_logo"
-            android:layout_width="@dimen/logo_default_size"
-            android:layout_height="@dimen/logo_default_size"
+            android:layout_width="@dimen/logo_default_width"
+            android:layout_height="@dimen/logo_default_height"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -64,7 +64,7 @@
             android:alpha="1"
             android:text="@string/emin"
             android:textColor="@color/colorWhite"
-            android:textSize="20dp"
+            android:textSize="@dimen/logo_title_font_size"
             app:layout_constraintBottom_toBottomOf="@id/iv_logo"
             app:layout_constraintLeft_toRightOf="@id/iv_logo"
             app:layout_constraintTop_toTopOf="@id/iv_logo" />
@@ -72,7 +72,7 @@
         <Constraint
             android:id="@+id/divider_emin"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="1px"
             android:layout_marginTop="8dp"
             android:alpha="0.5"
             android:background="@color/colorWhite"
@@ -99,14 +99,14 @@
                 app:motionTarget="@id/progress_bar" />
             <KeyAttribute
                 android:alpha="0.1"
-                android:scaleX="2"
-                android:scaleY="2"
+                android:scaleX="@dimen/zoom_default"
+                android:scaleY="@dimen/zoom_default"
                 app:framePosition="0"
                 app:motionTarget="@id/iv_logo" />
             <KeyAttribute
                 android:alpha="1"
-                android:scaleX="3"
-                android:scaleY="3"
+                android:scaleX="@dimen/zoom_large"
+                android:scaleY="@dimen/zoom_large"
                 app:framePosition="30"
                 app:motionTarget="@id/iv_logo" />
 
@@ -188,7 +188,7 @@
                 app:motionTarget="@+id/divider_emin">
                 <CustomAttribute
                     app:attributeName="layout_width"
-                    app:customDimension="40dp" />
+                    app:customDimension="@dimen/logo_divider_initial_width" />
             </KeyAttribute>
         </KeyFrameSet>
     </Transition>
