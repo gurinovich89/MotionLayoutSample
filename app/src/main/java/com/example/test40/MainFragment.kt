@@ -54,8 +54,7 @@ class MainFragment : Fragment() {
                 }
             }
         })
-
-        view_transition1.performClick()
+        motion_layout_root.transitionToEnd()
     }
 
 
