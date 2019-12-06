@@ -26,6 +26,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         btn_launch_full_anim.setOnClickListener({ startFullAnimation() })
         btn_unregister_screen.setOnClickListener({ openUnregistredFragment() })
+        tv_user.text = "Alexander"
     }
 
     private fun startFullAnimation() {

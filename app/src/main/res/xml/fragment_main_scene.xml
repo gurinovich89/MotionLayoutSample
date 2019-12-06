@@ -16,11 +16,10 @@
             app:layout_constraintVertical_bias="0.5" />
 
         <Constraint
-            android:id="@+id/tv_emin"
+            android:id="@+id/tv_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="1"
-            android:text="@string/emin"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/logo_title_font_size"
             app:layout_constraintBottom_toBottomOf="@id/iv_logo"
@@ -37,11 +36,10 @@
             app:layout_constraintTop_toBottomOf="@id/guideline_top" />
 
         <Constraint
-            android:id="@+id/tv_emin"
+            android:id="@+id/tv_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="1"
-            android:text="@string/emin"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/logo_title_font_size"
             app:layout_constraintBottom_toBottomOf="@id/iv_logo"
@@ -65,7 +63,7 @@
         android:id="@+id/tr1"
         app:constraintSetEnd="@id/state_end1"
         app:constraintSetStart="@id/state_start"
-        app:duration="7500"
+        app:duration="1516"
         app:motionInterpolator="linear">
 
         <KeyFrameSet>
@@ -83,16 +81,16 @@
                 android:alpha="1"
                 android:scaleX="@dimen/zoom_large"
                 android:scaleY="@dimen/zoom_large"
-                app:framePosition="30"
+                app:framePosition="35"
                 app:motionTarget="@id/iv_logo" />
 
             <KeyAttribute
                 android:alpha="0"
-                app:framePosition="40"
+                app:framePosition="35"
                 app:motionTarget="@id/progress_bar" />
 
             <KeyPosition
-                app:framePosition="30"
+                app:framePosition="35"
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/iv_logo"
                 app:percentX="0"
@@ -105,31 +103,45 @@
                 app:motionTarget="@id/iv_logo" />
 
             <KeyPosition
-                app:framePosition="60"
+                app:framePosition="55"
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/iv_logo"
                 app:percentX="0"
                 app:percentY="1" />
 
 
-            <!-- start emin -->
+            <!-- start user -->
             <KeyAttribute
                 android:alpha="0"
-                app:framePosition="80"
-                app:motionTarget="@id/tv_emin" />
+                app:framePosition="74"
+                app:motionTarget="@id/tv_user" />
 
             <KeyPosition
-                app:framePosition="80"
+                app:framePosition="74"
                 app:keyPositionType="deltaRelative"
-                app:motionTarget="@+id/tv_emin"
-                app:percentX="0.2"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0.1"
                 app:percentY="1" />
 
             <KeyPosition
-                app:framePosition="80"
+                app:framePosition="74"
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/iv_logo"
-                app:percentX="0.8"
+                app:percentX="0.75"
+                app:percentY="1" />
+
+            <KeyPosition
+                app:framePosition="92"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="1"
+                app:percentY="1" />
+
+            <KeyPosition
+                app:framePosition="92"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0.95"
                 app:percentY="1" />
         </KeyFrameSet>
     </Transition>
@@ -138,26 +150,54 @@
         android:id="@+id/tr2"
         app:constraintSetEnd="@id/state_end2"
         app:constraintSetStart="@id/state_end1"
-        app:duration="1200"
+        app:duration="884"
         app:motionInterpolator="linear">
 
         <KeyFrameSet>
             <KeyPosition
+                app:framePosition="6"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0"
+                app:percentY="0" />
+
+            <KeyPosition
+                app:framePosition="6"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0"
+                app:percentY="0" />
+
+            <KeyPosition
                 app:framePosition="30"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0"
+                app:percentY="-0.03" />
+
+            <KeyPosition
+                app:framePosition="30"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0"
+                app:percentY="-0.03" />
+
+            <KeyPosition
+                app:framePosition="40"
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/iv_logo"
                 app:percentX="0"
                 app:percentY="-0.02" />
 
             <KeyPosition
-                app:framePosition="30"
+                app:framePosition="40"
                 app:keyPositionType="deltaRelative"
-                app:motionTarget="@+id/tv_emin"
+                app:motionTarget="@+id/tv_user"
                 app:percentX="0"
                 app:percentY="-0.02" />
 
             <KeyPosition
-                app:framePosition="75"
+                app:framePosition="74"
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/iv_logo"
                 app:percentX="1"
@@ -165,22 +205,27 @@
                 app:transitionEasing="accelerate" />
 
             <KeyPosition
-                app:framePosition="75"
+                app:framePosition="74"
                 app:keyPositionType="deltaRelative"
-                app:motionTarget="@+id/tv_emin"
+                app:motionTarget="@+id/tv_user"
                 app:percentX="1"
                 app:percentY="1"
                 app:transitionEasing="accelerate" />
 
+            <!-- divider -->
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="64"
+                app:motionTarget="@+id/divider_emin"></KeyAttribute>
+
             <KeyPosition
-                app:framePosition="65"
+                app:framePosition="64"
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/divider_emin"
                 app:percentY="1" />
 
             <KeyAttribute
-                android:alpha="0"
-                app:framePosition="75"
+                app:framePosition="72"
                 app:motionTarget="@+id/divider_emin">
                 <CustomAttribute
                     app:attributeName="layout_width"
