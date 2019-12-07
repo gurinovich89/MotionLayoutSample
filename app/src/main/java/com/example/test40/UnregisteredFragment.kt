@@ -1,5 +1,8 @@
 package com.example.test40
 
+import android.animation.ValueAnimator
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -78,6 +81,7 @@ class UnregisteredFragment : Fragment() {
                         .replace(R.id.frame_container_id, registerFragment, "reg")
                         .addToBackStack(null)
                         .commitAllowingStateLoss()
+                    tintSystemBars()
                 }
             }
         })
@@ -90,5 +94,31 @@ class UnregisteredFragment : Fragment() {
         motionLayout.setTransitionDuration(5000)
         motionLayout.transitionToEnd()*/
         //MotionLayout.Trans
+    }
+
+    private fun tintSystemBars() { // Initial colors of each system bar.
+        val statusBarColor = resources.getColor(R.color.color_splash_end)
+        // Desired final colors of each bar.
+        val statusBarToColor = Color.BLUE
+        val anim = ValueAnimator.ofFloat(0f, 1f)
+        anim.addUpdateListener { animation ->
+            // Use animation position to blend colors.
+            val position = animation.animatedFraction
+            // Apply blended color to the status bar.
+            var blended = blendColors(statusBarColor, statusBarToColor, position)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                activity?.window?.setStatusBarColor(blended)
+            }
+
+        }
+        anim.setDuration(1000).start()
+    }
+
+    private fun blendColors(from: Int, to: Int, ratio: Float): Int {
+        val inverseRatio = 1f - ratio
+        val r: Float = Color.red(to) * ratio + Color.red(from) * inverseRatio
+        val g: Float = Color.green(to) * ratio + Color.green(from) * inverseRatio
+        val b: Float = Color.blue(to) * ratio + Color.blue(from) * inverseRatio
+        return Color.rgb(r.toInt(), g.toInt(), b.toInt())
     }
 }
