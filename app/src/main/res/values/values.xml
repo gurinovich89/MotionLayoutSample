@@ -2,4 +2,5 @@
 <resources>
     <item name="zoom_default" format="float" type="dimen">2.0</item>
     <item name="zoom_large" format="float" type="dimen">2.6</item>
+    <integer name="default_animation_duration">1000</integer>
 </resources>

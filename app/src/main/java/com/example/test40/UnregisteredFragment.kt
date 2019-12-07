@@ -75,7 +75,7 @@ class UnregisteredFragment : Fragment() {
                         .setCustomAnimations(
                             R.anim.enter_from_right,
                             R.anim.exit_to_left,
-                            R.anim.exit_to_right,
+                            R.anim.enter_from_left,
                             R.anim.exit_to_right
                         )
                         .replace(R.id.frame_container_id, registerFragment, "reg")
@@ -84,7 +84,7 @@ class UnregisteredFragment : Fragment() {
                 }
             }
         })
-        motion_layout_root.transitionToEnd()
+        btn_start.setOnClickListener { motion_layout_root.transitionToEnd() }
         /*motionLayout.setTransition(R.id.base_state, R.id.half_people)
         motionLayout.setTransitionDuration(5000)
         motionLayout.transitionToEnd()*/
