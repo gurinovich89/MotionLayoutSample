@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ConstraintSet android:id="@+id/state_start" />
+
+    <ConstraintSet android:id="@+id/state_end1">
+        <Constraint
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/logo_default_width"
+            android:layout_height="@dimen/logo_default_height"
+            android:scaleX="1"
+            android:scaleY="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
+
+        <Constraint
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/logo_title_font_size"
+            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+            app:layout_constraintLeft_toRightOf="@id/iv_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_logo" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/state_end2">
+        <Constraint
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/logo_default_width"
+            android:layout_height="@dimen/logo_default_height"
+            app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/guideline_top" />
+
+        <Constraint
+            android:id="@+id/tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/logo_title_font_size"
+            app:layout_constraintBottom_toBottomOf="@id/iv_logo"
+            app:layout_constraintLeft_toRightOf="@id/iv_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_logo" />
+
+        <Constraint
+            android:id="@+id/divider_emin"
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:layout_marginTop="8dp"
+            android:alpha="0.5"
+            android:background="@color/colorWhite"
+            app:layout_constraintLeft_toLeftOf="@id/iv_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo" />
+        <Constraint
+            android:id="@+id/frame_bottom_container_id"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline_pin_code_end" />
+
+    </ConstraintSet>
+
+    <Transition
+        android:id="@+id/tr1"
+        app:constraintSetEnd="@id/state_end1"
+        app:constraintSetStart="@id/state_start"
+        app:duration="1516"
+        app:motionInterpolator="linear">
+
+        <KeyFrameSet>
+            <KeyAttribute
+                android:alpha="1"
+                app:framePosition="0"
+                app:motionTarget="@id/progress_bar" />
+            <KeyAttribute
+                android:alpha="0.1"
+                android:scaleX="@dimen/zoom_default"
+                android:scaleY="@dimen/zoom_default"
+                app:framePosition="0"
+                app:motionTarget="@id/iv_logo" />
+            <KeyAttribute
+                android:alpha="1"
+                android:scaleX="@dimen/zoom_large"
+                android:scaleY="@dimen/zoom_large"
+                app:framePosition="35"
+                app:motionTarget="@id/iv_logo" />
+
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="35"
+                app:motionTarget="@id/progress_bar" />
+
+            <KeyPosition
+                app:framePosition="35"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0"
+                app:percentY="1" />
+
+            <KeyAttribute
+                android:scaleX="1"
+                android:scaleY="1"
+                app:framePosition="55"
+                app:motionTarget="@id/iv_logo" />
+
+            <KeyPosition
+                app:framePosition="55"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0"
+                app:percentY="1" />
+
+
+            <!-- start user -->
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="74"
+                app:motionTarget="@id/tv_user" />
+
+            <KeyPosition
+                app:framePosition="74"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0.1"
+                app:percentY="1" />
+
+            <KeyPosition
+                app:framePosition="74"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0.75"
+                app:percentY="1" />
+
+            <KeyPosition
+                app:framePosition="92"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="1"
+                app:percentY="1" />
+
+            <KeyPosition
+                app:framePosition="92"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0.95"
+                app:percentY="1" />
+        </KeyFrameSet>
+    </Transition>
+
+    <Transition
+        android:id="@+id/tr2"
+        app:constraintSetEnd="@id/state_end2"
+        app:constraintSetStart="@id/state_end1"
+        app:duration="840"
+        app:motionInterpolator="linear">
+
+        <OnClick app:targetId="@id/view_transition2" />
+
+        <KeyFrameSet>
+            <KeyPosition
+                app:framePosition="6"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0"
+                app:percentY="0" />
+
+            <KeyPosition
+                app:framePosition="6"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0"
+                app:percentY="0" />
+
+            <KeyPosition
+                app:framePosition="30"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0"
+                app:percentY="-0.03" />
+
+            <KeyPosition
+                app:framePosition="30"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0"
+                app:percentY="-0.03" />
+
+            <KeyPosition
+                app:framePosition="40"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="0"
+                app:percentY="-0.02" />
+
+            <KeyPosition
+                app:framePosition="40"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="0"
+                app:percentY="-0.02" />
+
+            <KeyPosition
+                app:framePosition="74"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/iv_logo"
+                app:percentX="1"
+                app:percentY="1"
+                app:transitionEasing="accelerate" />
+
+            <KeyPosition
+                app:framePosition="74"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/tv_user"
+                app:percentX="1"
+                app:percentY="1"
+                app:transitionEasing="accelerate" />
+
+            <!-- divider -->
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="64"
+                app:motionTarget="@+id/divider_emin"></KeyAttribute>
+
+            <KeyPosition
+                app:framePosition="64"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/divider_emin"
+                app:percentY="1" />
+
+            <KeyAttribute
+                app:framePosition="72"
+                app:motionTarget="@+id/divider_emin">
+                <CustomAttribute
+                    app:attributeName="layout_width"
+                    app:customDimension="@dimen/logo_divider_initial_width" />
+            </KeyAttribute>
+
+
+            <!-- bottom container -->
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="45"
+                app:motionTarget="@+id/frame_bottom_container_id"></KeyAttribute>
+
+            <KeyPosition
+                app:framePosition="65"
+                app:keyPositionType="deltaRelative"
+                app:motionTarget="@+id/frame_bottom_container_id"
+                app:percentY="0" />
+        </KeyFrameSet>
+    </Transition>
+</MotionScene>
