@@ -9,7 +9,7 @@
         <Constraint
             android:id="@+id/iv_logo"
             android:layout_width="@dimen/logo_default_width"
-            android:layout_height="@dimen/logo_default_width"
+            android:layout_height="@dimen/logo_default_height"
             android:alpha="0"
             android:scaleX="1"
             android:scaleY="1"
@@ -23,8 +23,8 @@
         <Constraint
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyle"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/logo_progress_size"
+            android:layout_height="@dimen/logo_progress_size"
             android:layout_marginBottom="40dp"
             android:alpha="0"
             android:visibility="visible"
@@ -37,11 +37,9 @@
         android:id="@+id/tr1"
         app:constraintSetEnd="@id/state_end1"
         app:constraintSetStart="@id/state_start"
-        app:duration="2000"
+        app:duration="2400"
         app:motionInterpolator="linear">
-        <OnClick
-            app:clickAction="transitionToEnd"
-            app:targetId="@id/iv_logo" />
+        <OnClick app:targetId="@id/iv_logo" />
         <KeyFrameSet>
             <KeyAttribute
                 android:alpha="1"
@@ -49,19 +47,18 @@
                 app:motionTarget="@id/progress_bar" />
             <KeyAttribute
                 android:alpha="0.1"
-                android:scaleX="2"
-                android:scaleY="2"
+                android:scaleX="@dimen/zoom_default"
+                android:scaleY="@dimen/zoom_default"
                 app:framePosition="0"
                 app:motionTarget="@id/iv_logo" />
             <KeyAttribute
                 android:alpha="1"
-                android:scaleX="3"
-                android:scaleY="3"
-                app:framePosition="20"
+                android:scaleX="@dimen/zoom_large"
+                android:scaleY="@dimen/zoom_large"
+                app:framePosition="22"
                 app:motionTarget="@id/iv_logo" />
-
             <KeyPosition
-                app:framePosition="20"
+                app:framePosition="22"
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@id/iv_logo"
                 app:percentX="0"
@@ -69,27 +66,27 @@
 
             <KeyAttribute
                 android:alpha="1"
-                android:scaleX="3"
-                android:scaleY="3"
-                app:framePosition="70"
+                android:scaleX="@dimen/zoom_large"
+                android:scaleY="@dimen/zoom_large"
+                app:framePosition="79"
                 app:motionTarget="@id/iv_logo" />
 
             <KeyAttribute
                 android:alpha="1"
-                app:framePosition="70"
+                app:framePosition="79"
+                app:motionTarget="@id/progress_bar" />
+
+            <KeyAttribute
+                android:alpha="0"
+                app:framePosition="89"
                 app:motionTarget="@id/progress_bar" />
 
             <KeyAttribute
                 android:alpha="0"
                 android:scaleX="1"
                 android:scaleY="1"
-                app:framePosition="90"
+                app:framePosition="96"
                 app:motionTarget="@id/iv_logo" />
-
-            <KeyAttribute
-                android:alpha="0"
-                app:framePosition="90"
-                app:motionTarget="@id/progress_bar" />
         </KeyFrameSet>
     </Transition>
 </MotionScene>

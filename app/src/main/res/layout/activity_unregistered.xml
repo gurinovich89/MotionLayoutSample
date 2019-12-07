@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    app:layoutDescription="@xml/activity_unregistered_scene"
+    app:layoutDescription="@xml/fragment_unregistered_scene"
     tools:context=".MainActivity">
 
     <View

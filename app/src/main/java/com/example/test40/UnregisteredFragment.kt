@@ -25,9 +25,6 @@ class UnregisteredFragment : Fragment() {
     }
 
     var cacheStasusBarColor: Int? = null
-    override fun onStart() {
-        super.onStart()
-    }
 
     override fun onResume() {
         super.onResume()
@@ -87,6 +84,7 @@ class UnregisteredFragment : Fragment() {
                 }
             }
         })
+        motion_layout_root.transitionToEnd()
         /*motionLayout.setTransition(R.id.base_state, R.id.half_people)
         motionLayout.setTransitionDuration(5000)
         motionLayout.transitionToEnd()*/
