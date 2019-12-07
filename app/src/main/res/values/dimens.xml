@@ -5,4 +5,5 @@
     <dimen name="logo_title_font_size">42dp</dimen>
     <dimen name="logo_progress_size">24dp</dimen>
     <dimen name="logo_divider_initial_width">40dp</dimen>
+    <dimen name="splash_buttons_initial_height">50dp</dimen>
 </resources>

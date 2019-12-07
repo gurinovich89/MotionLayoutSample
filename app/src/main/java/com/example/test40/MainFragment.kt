@@ -45,13 +45,15 @@ class MainFragment : Fragment() {
 
             override fun onTransitionCompleted(motionLayout: MotionLayout?, currentStateId: Int) {
                 if (currentStateId == R.id.state_end1) {
-                    val transition = motionLayout?.getTransition(R.id.tr2)
+                    view_transition2.performClick()
+                    /*val transition = motionLayout?.getTransition(R.id.tr2)
+                    motionLayout?.setTransitionDuration(500)
                     transition?.let {
                         motionLayout.setTransition(
                             transition.startConstraintSetId,
                             transition.endConstraintSetId
                         )
-                    }
+                    }*/
                 }
             }
         })
