@@ -27,6 +27,10 @@ class MainFragment : Fragment() {
         btn_launch_full_anim.setOnClickListener({ startFullAnimation() })
         btn_unregister_screen.setOnClickListener({ openUnregistredFragment() })
         tv_user.text = "Alexander"
+        tv_show_progress.setOnClickListener{
+            val progress = motion_layout_root.progress
+            activity?.title = "progress = $progress"
+        }
     }
 
     private fun startFullAnimation() {

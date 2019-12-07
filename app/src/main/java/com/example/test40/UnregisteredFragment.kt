@@ -1,12 +1,12 @@
 package com.example.test40
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_unregistered.*
 
@@ -28,24 +28,21 @@ class UnregisteredFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val window = activity?.getWindow()
-        window?.apply {
-            cacheStasusBarColor = window.statusBarColor
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.setStatusBarColor(Color.RED)
-        }
+        cacheStasusBarColor = activity?.window?.statusBarColor
+        setStatusBarColor(ContextCompat.getColor(context!!, R.color.color_splash_end))
     }
 
     override fun onPause() {
         super.onPause()
-        val window = activity?.getWindow()
+        cacheStasusBarColor?.let { setStatusBarColor(it) }
+    }
+
+    fun setStatusBarColor(color: Int) {
+        val window = activity?.window
         window?.apply {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            cacheStasusBarColor?.let {
-                window.setStatusBarColor(it)
-            }
+            window.statusBarColor = color
         }
     }
 
@@ -84,7 +81,11 @@ class UnregisteredFragment : Fragment() {
                 }
             }
         })
-        btn_start.setOnClickListener { motion_layout_root.transitionToEnd() }
+        motion_layout_root.progress = 0.5f
+        btn_start.setOnClickListener {
+            //motion_layout_root.setInterpolatedProgress(0.5f)
+            motion_layout_root.transitionToEnd()
+        }
         /*motionLayout.setTransition(R.id.base_state, R.id.half_people)
         motionLayout.setTransitionDuration(5000)
         motionLayout.transitionToEnd()*/
