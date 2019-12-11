@@ -6,4 +6,6 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="color_splash_start">#ff7606</color>
     <color name="color_splash_end">#ffa800</color>
+    <color name="color_test_transparent">#1000FF00</color>
+    <color name="color_test_transparent1">#10ff0000</color>
 </resources>

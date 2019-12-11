@@ -1,5 +1,6 @@
 package com.example.test40
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
@@ -14,5 +15,7 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.frame_container_id, mainFragment, "1")
                 .commitAllowingStateLoss()
         }
+        /*window.statusBarColor = Color.GREEN
+        window.navigationBarColor = Color.RED*/
     }
 }
