@@ -11,10 +11,6 @@ import kotlinx.android.synthetic.main.fragment_main_pincode.*
 
 class MainFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,10 +23,25 @@ class MainFragment : Fragment() {
         btn_launch_full_anim.setOnClickListener({ startFullAnimation() })
         btn_unregister_screen.setOnClickListener({ openUnregistredFragment() })
         tv_user.text = "Alexander"
-        tv_show_progress.setOnClickListener{
-            val progress = motion_layout_root.progress
-            activity?.title = "progress = $progress"
+        tv_show_progress.setOnClickListener {
+            setMotionLayoutState()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        motion_layout_root.progress = 1f
+        motion_layout_root.transitionToState(R.id.state_2)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //motion_layout_root.transitionToState(R.id.state_3)
+    }
+
+    private fun setMotionLayoutState() {
+        motion_layout_root.transitionToState(R.id.state_2)
+        //motion_layout_root.setState(R.id.state_1, -1, -1)
     }
 
     private fun startFullAnimation() {
@@ -47,21 +58,15 @@ class MainFragment : Fragment() {
 
             }
 
-            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentStateId: Int) {
-                if (currentStateId == R.id.state_end1) {
-                    view_transition2.performClick()
-                    /*val transition = motionLayout?.getTransition(R.id.tr2)
-                    motionLayout?.setTransitionDuration(500)
-                    transition?.let {
-                        motionLayout.setTransition(
-                            transition.startConstraintSetId,
-                            transition.endConstraintSetId
-                        )
-                    }*/
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                if (currentId == R.id.set_2) {
+                    motion_layout_root.transitionToState(R.id.state_3)
                 }
             }
         })
-        motion_layout_root.transitionToEnd()
+        motion_layout_root.transitionToState(R.id.state_1)
+        //motion_layout_root.setTransitionDuration(5000)
+        //motion_layout_root.setTransition(R.id.state_3, R.id.state_2)
     }
 
 
@@ -69,7 +74,14 @@ class MainFragment : Fragment() {
         val unregisteredFragment = UnregisteredFragment()
         fragmentManager?.apply {
             beginTransaction()
-                .add(R.id.frame_container_id, unregisteredFragment, "unreg")
+                .setCustomAnimations(
+                    R.anim.enter_from_right,
+                    R.anim.do_nothing, //R.anim.exit_to_left,
+                    R.anim.enter_from_left,
+                    R.anim.exit_to_right
+                )
+                .replace(R.id.frame_container_id, unregisteredFragment, "unreg")
+                .addToBackStack(null)
                 .commitAllowingStateLoss()
         }
     }

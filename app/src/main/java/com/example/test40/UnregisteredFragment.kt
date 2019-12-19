@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_unregistered.*
 
@@ -55,6 +56,7 @@ class UnregisteredFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ViewCompat.setTranslationZ(view, 100f);
         motion_layout_root.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionTrigger(p0: MotionLayout?, p1: Int, p2: Boolean, p3: Float) {
 
@@ -72,12 +74,6 @@ class UnregisteredFragment : Fragment() {
                 val registerFragment = RegisterFragment()
                 fragmentManager?.apply {
                     beginTransaction()
-                        .setCustomAnimations(
-                            R.anim.enter_from_right,
-                            R.anim.exit_to_left,
-                            R.anim.enter_from_left,
-                            R.anim.exit_to_right
-                        )
                         .replace(R.id.frame_container_id, registerFragment, "reg")
                         .addToBackStack(null)
                         .commitAllowingStateLoss()

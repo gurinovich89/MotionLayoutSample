@@ -8,4 +8,8 @@
     <color name="color_splash_end">#ffa800</color>
     <color name="color_test_transparent">#1000FF00</color>
     <color name="color_test_transparent1">#10ff0000</color>
+
+
+    <color name="custom_status_bar_color">#00000000</color>
+    <color name="custom_navigation_bar_color">#10000000</color>
 </resources>

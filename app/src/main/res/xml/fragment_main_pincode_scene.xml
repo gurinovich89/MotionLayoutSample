@@ -1,11 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ConstraintSet android:id="@+id/state_start" />
+    <StateSet app:defaultState="@id/state_1">
+        <State
+            android:id="@+id/state_1"
+            app:constraints="@id/set_1" />
+        <State
+            android:id="@+id/state_2"
+            app:constraints="@id/set_2" />
+        <State
+            android:id="@+id/state_3"
+            app:constraints="@id/set_3" />
+    </StateSet>
 
-    <ConstraintSet android:id="@+id/state_end1">
+    <ConstraintSet android:id="@+id/set_1">
         <Constraint
-            android:id="@+id/iv_logo"
+            android:id="@id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="64dp" />
+
+        <Constraint
+            android:id="@id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <Constraint
+            android:id="@id/guideline_pin_code_initial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <Constraint
+            android:id="@id/guideline_pin_code_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="128dp" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/set_2">
+        <Constraint
+            android:id="@+id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="64dp" />
+
+        <Constraint
+            android:id="@id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <Constraint
+            android:id="@id/guideline_pin_code_initial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <Constraint
+            android:id="@id/guideline_pin_code_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="128dp" />
+
+        <Constraint
+            android:id="@id/iv_logo"
             android:layout_width="@dimen/logo_default_width"
             android:layout_height="@dimen/logo_default_height"
             android:scaleX="1"
@@ -16,7 +84,7 @@
             app:layout_constraintVertical_bias="0.5" />
 
         <Constraint
-            android:id="@+id/tv_user"
+            android:id="@id/tv_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="1"
@@ -27,16 +95,44 @@
             app:layout_constraintTop_toTopOf="@id/iv_logo" />
     </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/state_end2">
+    <ConstraintSet android:id="@+id/set_3">
         <Constraint
-            android:id="@+id/iv_logo"
+            android:id="@id/guideline_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="64dp" />
+
+        <Constraint
+            android:id="@+id/guideline_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <Constraint
+            android:id="@id/guideline_pin_code_initial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <Constraint
+            android:id="@id/guideline_pin_code_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="128dp" />
+
+        <Constraint
+            android:id="@id/iv_logo"
             android:layout_width="@dimen/logo_default_width"
             android:layout_height="@dimen/logo_default_height"
             app:layout_constraintLeft_toRightOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/guideline_top" />
 
         <Constraint
-            android:id="@+id/tv_user"
+            android:id="@id/tv_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:alpha="1"
@@ -47,7 +143,7 @@
             app:layout_constraintTop_toTopOf="@id/iv_logo" />
 
         <Constraint
-            android:id="@+id/divider_emin"
+            android:id="@id/divider_emin"
             android:layout_width="0dp"
             android:layout_height="1px"
             android:layout_marginTop="8dp"
@@ -57,7 +153,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_logo" />
         <Constraint
-            android:id="@+id/frame_bottom_container_id"
+            android:id="@id/frame_bottom_container_id"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:alpha="1"
@@ -71,8 +167,8 @@
 
     <Transition
         android:id="@+id/tr1"
-        app:constraintSetEnd="@id/state_end1"
-        app:constraintSetStart="@id/state_start"
+        app:constraintSetEnd="@id/set_2"
+        app:constraintSetStart="@id/set_1"
         app:duration="1516"
         app:motionInterpolator="linear">
 
@@ -158,12 +254,10 @@
 
     <Transition
         android:id="@+id/tr2"
-        app:constraintSetEnd="@id/state_end2"
-        app:constraintSetStart="@id/state_end1"
+        app:constraintSetEnd="@id/set_3"
+        app:constraintSetStart="@id/set_2"
         app:duration="840"
         app:motionInterpolator="linear">
-
-        <OnClick app:targetId="@id/view_transition2" />
 
         <KeyFrameSet>
             <KeyPosition
@@ -235,15 +329,6 @@
                 app:keyPositionType="deltaRelative"
                 app:motionTarget="@+id/divider_emin"
                 app:percentY="1" />
-
-            <KeyAttribute
-                app:framePosition="72"
-                app:motionTarget="@+id/divider_emin">
-                <CustomAttribute
-                    app:attributeName="layout_width"
-                    app:customDimension="@dimen/logo_divider_initial_width" />
-            </KeyAttribute>
-
 
             <!-- bottom container -->
             <KeyAttribute
