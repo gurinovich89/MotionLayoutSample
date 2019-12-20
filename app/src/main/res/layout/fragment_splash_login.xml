@@ -2,19 +2,38 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frame_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background_spash_screen">
 
-    <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/motion_layout_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FF0000"
-        app:layoutDescription="@xml/fragment_main_pincode_scene"
-        tools:context=".MainActivity">
+        app:layoutDescription="@xml/fragment_splash_login_scene">
+
+        <TextView
+            android:id="@+id/tv_debug_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN AUTHORIZED SPLASH_SCREEN"
+            android:textColor="@android:color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/big_padding"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="@dimen/default_padding"
+            android:src="@drawable/ic_close"
+            android:tint="@color/background_lt"
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_top"
@@ -49,8 +68,6 @@
             android:layout_width="@dimen/logo_default_width"
             android:layout_height="@dimen/logo_default_height"
             android:alpha="0.1"
-            android:scaleX="1"
-            android:scaleY="1"
             android:src="@drawable/ic_logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -60,26 +77,32 @@
 
         <TextView
             android:id="@+id/tv_user"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:alpha="0"
-            android:paddingLeft="6dp"
-            android:textColor="@color/colorWhite"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingLeft="@dimen/extra_small_padding"
+            android:singleLine="true"
+            android:textColor="@color/background_lt"
             android:textSize="@dimen/logo_title_font_size"
+            app:fontFamily="@font/montserrat_semi_bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/guideline_left"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
             tools:alpha="1"
-            tools:text="@string/emin" />
+            tools:text="Emin" />
 
         <View
-            android:id="@+id/divider_emin"
+            android:id="@+id/divider_user_name"
             android:layout_width="@dimen/logo_divider_initial_width"
-            android:layout_height="1px"
-            android:layout_marginTop="8dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/default_padding"
             android:alpha="0"
-            android:background="@color/colorWhite"
+            android:background="@color/color_divider_user_name"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="@id/iv_logo"
             app:layout_constraintRight_toRightOf="parent"
@@ -104,54 +127,24 @@
             android:layout_height="0dp"
             android:alpha="0"
             android:visibility="visible"
+            android:background="#FF0000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideline_pin_code_initial"
-            tools:alpha="1">
-
-            <include layout="@layout/layout_pincode" />
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@+id/guideline_pin_code_initial"
+            tools:alpha="1" />
 
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <!--<include layout="@layout/loading_overlay" />-->
+
+    <EditText
+        android:id="@+id/etState"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="right|top"
-        android:layout_marginTop="40dp"
-        android:gravity="top"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/etTest"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:hint="stateId next" />
-
-        <TextView
-            android:id="@+id/btn_unregister_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Open unregistered animation"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/btn_launch_full_anim"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Launch full animation"
-            android:textSize="16dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/tv_show_progress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="See progress" />
-
-    </LinearLayout>
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="40dp"
+        android:hint="next StateId" />
 
 </FrameLayout>

@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
-            val mainFragment = MainFragment()
+            //val mainFragment = MainFragment()
             supportFragmentManager.beginTransaction()
-                .add(R.id.frame_container_id, mainFragment, "1")
+                .add(R.id.frame_container_id, SplashLoginFragment(), "1")
                 .commitAllowingStateLoss()
         }
 

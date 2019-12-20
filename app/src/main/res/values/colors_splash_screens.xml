@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- splash screens -->
+    <color name="color_btn_text_registration">#14222222</color>
+    <color name="color_divider_user_name">#51ffffff</color>
+    <color name="color_indicator_unselected">#1e000000</color>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- COMMON PROJECT COLORS -->
+    <color name="background_lt">#fff</color>
+    <color name="background_secondary_lt">#f3f3f3</color>
+    <color name="background_secondary_transparent_lt">#00F3F3F3</color>
+    <color name="product_default_lt">#6b0860</color>
+    <color name="card_default_lt">#6b0860</color>
+
+    <color name="primary_lt">#ff9822</color>
+    <color name="primary_dark_lt">#ec6500</color>
+
+    <!-- TEXT COLORS -->
+    <color name="text_primary_lt">#222222</color>
+    <color name="text_primary_transparent_lt">#00222222</color>
+    <color name="text_primary_light_lt">#66222222</color>
+
+    <color name="text_card_lt">#FFFFFF</color>
+    <color name="text_card_72_lt">#B8FFFFFF</color>
+
+    <color name="text_primary_10_lt">#19222222</color>
+    <color name="text_primary_24_lt">#3D222222</color>
+    <color name="text_primary_32_lt">#52222222</color>
+    <color name="text_primary_56_lt">#8f222222</color>
+    <color name="text_error_lt">#d73729</color>
+
+    <color name="text_title_small_lt">#000000</color>
+
+    <!-- INDICATOR -->
+    <color name="indicator_selected_lt">@color/text_primary_lt</color>
+    <color name="indicator_unselected_lt">#51222222</color>
+
+    <!-- RIPPLE -->
+    <eat-comment />
+    <color name="ripple_color_lt">#000</color>
+    <color name="ripple_mask_lt">#62ffffff</color>
+
+    <!-- BUTTONS -->
+    <color name="active_button_bg_lt">@color/primary_lt</color>
+    <color name="active_button_bg_disabled_lt">#E7E7E7</color>
+
+    <color name="active_button_text_lt">@color/text_card_lt</color>
+    <color name="active_button_text_disabled_lt">@color/text_primary_32_lt</color>
+
+    <!-- SWITCH -->
+    <color name="switch_track_selected_lt">#66ff9822</color>
+    <color name="switch_track_unselected_lt">#c9c9c9</color>
+    <color name="switch_track_disabled_lt">#8FC9C9C9</color>
+    <color name="switch_thumb_selected_disabled_lt">#F4BB79</color>
+    <color name="switch_thumb_disabled_lt">#F4F4F4</color>
+
+</resources>
